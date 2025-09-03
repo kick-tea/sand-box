@@ -39,6 +39,4 @@ execution_time = end_time - start_time
 
 # 実行時間の表示
 print('------')
-
 print(f'Elapsed time: {execution_time:.2f}sec.')
-
