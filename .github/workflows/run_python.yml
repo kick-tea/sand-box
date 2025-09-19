@@ -1,0 +1,49 @@
+# .github/workflows/run_python.yml
+name: Run Python on PR
+
+# PR 作成・更新時に発火する
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write   # ← これが無いとコメントできないことが多い
+  issues: write          # ← gh issue comment を使うならあると安心
+
+jobs:
+  run-script:
+    runs-on: windows-latest
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+      HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+      AACS: ${{ secrets.AACS }}
+      PYTHONIOENCODING: utf-8
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Python 環境をセットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 依存ライブラリをインストール
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+        # PowerShell 側の出力を UTF-8 に
+      - name: Ensure UTF-8 console (PowerShell)
+        shell: pwsh
+        run: |
+          [Console]::OutputEncoding = [System.Text.UTF8Encoding]::UTF8
+
+      # Python スクリプトを PR 番号付きで実行
+      - name: Run Python script with PR number
+        run: |
+          chcp 65001
+          python -X utf8 scripts/gitDiffCheck.py ${{ github.event.pull_request.number }}
