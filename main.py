@@ -14,6 +14,17 @@ print('invoke gitDiffCheck')
 print('set environment variables')
 # additional comment
 
+def brightness(c: int) -> float:
+    """
+    Fundamental Transformation/Operation that'll be performed on
+    every bit.
+    """
+    return 128 + level + (c - 128)
+
+if not -255.0 <= level <= 255.0:
+    raise ValueError("level must be between -255.0 (black) and 255.0 (white)")
+return img.point(brightness)
+
 # 実行時間の計測終了
 end_time = time.time()
 execution_time = end_time - start_time
@@ -22,6 +33,7 @@ execution_time = end_time - start_time
 print('------')
 
 print(f'Elapsed time: {execution_time:.2f}sec.')
+
 
 
 
