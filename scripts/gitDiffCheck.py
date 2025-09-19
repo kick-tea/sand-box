@@ -31,6 +31,8 @@ strGitCommentHeader = '[Copyright Infringement Detection] '
 
 # REST APIのエンドポイント
 url = os.getenv("AACS")
+# AACS APIkey
+AACSAPIkey = os.getenv("AACSAPIkey")
 
 def load_model(name):
     """
@@ -216,7 +218,7 @@ def callAzureCLI(data):
     """
     # リクエストヘッダを指定
     headers = {
-        'Ocp-Apim-Subscription-Key': 'XXXXX',
+        'Ocp-Apim-Subscription-Key': AACSAPIkey,
         'Content-Type': 'application/json'
     }
 
