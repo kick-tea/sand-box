@@ -19,6 +19,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
       AACS: ${{ secrets.AACS }}
+      AACSAPIkey : ${{ secrets.AACSAPIkey }}
       PYTHONIOENCODING: utf-8
 
     steps:
