@@ -8,6 +8,8 @@ sleep_time = 3 # スリープ時間を3秒に設定
 print(f'Sleeping for {sleep_time} seconds...')
 time.sleep(sleep_time)  # スリープ時間を待機
 
+# Comment for Actions
+
 # 実行時間の計測終了
 end_time = time.time()
 execution_time = end_time - start_time
@@ -16,4 +18,5 @@ execution_time = end_time - start_time
 print('------')
 
 print(f'Elapsed time: {execution_time:.2f}sec.')
+
 
