@@ -11,7 +11,7 @@ time.sleep(sleep_time)  # スリープ時間を待機
 # Comment for Actions
 print('invoke GitHub Actions')
 print('invoke gitDiffCheck')
-print('set APIkey')
+print('set environment variables')
 # additional comment
 
 # 実行時間の計測終了
@@ -22,6 +22,7 @@ execution_time = end_time - start_time
 print('------')
 
 print(f'Elapsed time: {execution_time:.2f}sec.')
+
 
 
 
