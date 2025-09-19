@@ -12,8 +12,13 @@ time.sleep(sleep_time)  # スリープ時間を待機
 end_time = time.time()
 execution_time = end_time - start_time
 
+# add comment for Actions test
+print('PULL!')
+# comment End
+
 # 実行時間の表示
 print('------')
 
 print(f'Elapsed time: {execution_time:.2f}sec.')
+
 
