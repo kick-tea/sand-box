@@ -9,6 +9,7 @@ print(f'Sleeping for {sleep_time} seconds...')
 time.sleep(sleep_time)  # スリープ時間を待機
 
 # Comment for Actions
+print('invoke GitHub Actions!')
 # additional comment
 
 # 実行時間の計測終了
@@ -19,3 +20,4 @@ execution_time = end_time - start_time
 print('------')
 
 print(f'Elapsed time: {execution_time:.2f}sec.')
+
